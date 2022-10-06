@@ -1,0 +1,14 @@
+import listProductsService from "../../services/products/listProducts.service";
+
+
+const listProductsController = async (request, response) => {
+  try {
+    const products = await listProductsService();
+
+    return response.status(200).json(products);
+  } catch (error) {
+    return response.status(400).json(error.message);
+  }
+};
+
+export default listProductsController;
